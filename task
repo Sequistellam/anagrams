@@ -1,0 +1,13 @@
+import itertools
+
+def anagrams(filename, word):
+    with open(filename, 'r') as f:
+        words = f.read().splitlines()  # create a list of words from the file
+
+    # generate all possible permutations of the input word
+    word_perms = ["".join(perm) for perm in itertools.permutations(word)]
+
+    # check each permutation against the list of words from the file
+    for perm in word_perms:
+        if perm in words:
+            print(perm)
